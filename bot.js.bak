@@ -1,16 +1,7 @@
-require('dotenv').config();
+console.log('Token:', process.env.DISCORD_TOKEN);  // Vérifie la valeur du token
 
-const { Client, GatewayIntentBits, ModalBuilder, TextInputBuilder, ActionRowBuilder, 
-        TextInputStyle, ButtonBuilder, ButtonStyle } = require('discord.js');
-
-const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMembers,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent
-    ]
-});
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 // Remplacez ces valeurs par vos propres IDs
 const config = {
@@ -23,8 +14,8 @@ const config = {
 };
 
 // Quand le bot démarre
-client.on('ready', () => {
-    console.log(`Bot connecté en tant que ${client.user.tag}`);
+client.once('ready', () => {
+  console.log(`Bot connecté en tant que ${client.user.tag}`);
 });
 
 // Quand un nouveau membre rejoint
@@ -110,4 +101,4 @@ client.on('interactionCreate', async (interaction) => {
     }
 });
 
-client.login(TOKEN);
+client.login(process.env.DISCORD_TOKEN);

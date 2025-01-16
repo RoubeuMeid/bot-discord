@@ -14,7 +14,7 @@ const client = new Client({
 
 // Remplacez ces valeurs par vos propres IDs
 const config = {
-    TOKEN: process.env.DISCORD_TOKEN,         // Le token copié depuis le portail développeur Discord
+    TOKEN: 'MTMyODkzMTgyNzMxODEzMjc4Nw.Gevr5v.IwnufuObKTcL0eMoSwsztpkpt5a4iZDcxwgk1c',         // Le token copié depuis le portail développeur Discord
     GUILD_ID: '349989708635439104',  // Clic droit sur le serveur -> Copier l'ID
     VERIFICATION_CHANNEL_ID: '1328575869257646172', // ID du channel vérification
     UNVERIFIED_ROLE_ID: '1328549749015576688',  // ID du rôle Non vérifié
@@ -110,4 +110,4 @@ client.on('interactionCreate', async (interaction) => {
     }
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(TOKEN);
